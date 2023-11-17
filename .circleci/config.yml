@@ -22,17 +22,17 @@ jobs:
       - run:
           name: "Build Docker Image"
           command: |
-            docker build -t prathibha07/sparserecommender_docker:latest .
+            docker build -t prathibha07/sparse_recommender:latest .
 
       - run:
           name: "Push Docker Image"
           command: |
-            echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+            echo "$DOCKERHUB_PASSWORD" | docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
 
       - run:
           name: Push Docker Image to Docker Hub
           command: |
-            docker push $DOCKER_USERNAME/sparserecommender_docker:latest
+            docker push $DOCKERHUB_USERNAME/sparse_recommender:latest
 
 workflows:
   version: 2.1

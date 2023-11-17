@@ -22,7 +22,7 @@ jobs:
       - run:
           name: "Build Docker Image"
           command: |
-            docker build -t prathibha07/sparse_recommender_docker:latest .
+            docker build -t prathibha07/sparserecommender_docker:latest .
 
       - run:
           name: "Push Docker Image"
@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Push Docker Image to Docker Hub
           command: |
-            docker push $DOCKER_USERNAME/sparse_recommender_docker:latest
+            docker push $DOCKER_USERNAME/sparserecommender_docker:latest
 
 workflows:
   version: 2.1

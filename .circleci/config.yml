@@ -4,11 +4,12 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.8
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
 
     steps:
       - checkout
+
+      - setup_remote_docker:
+          docker_layer_caching: true
 
       - run:
           name: Start Docker Daemon

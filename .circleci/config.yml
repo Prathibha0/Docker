@@ -4,8 +4,6 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.8
-        cache_from:
-          - prathibha07/sparse_recommender_docker:latest
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
 

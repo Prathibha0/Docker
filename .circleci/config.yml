@@ -12,6 +12,7 @@ jobs:
           name: Install dependencies
           command: |
             python -m pip install --upgrade pip
+            cp requirements.txt ./  # Copy requirements.txt to the root
             pip install -r requirements.txt
 
       - run:

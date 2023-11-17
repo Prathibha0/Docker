@@ -4,9 +4,17 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.8
+        cache_from:
+          - prathibha07/sparse_recommender_docker:latest
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
 
     steps:
       - checkout
+
+      - run:
+          name: Start Docker Daemon
+          command: sudo service docker start
 
       - run:
           name: Build Docker image
@@ -16,7 +24,7 @@ jobs:
       - run:
           name: Push Docker image to Docker Hub
           command: |
-            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            echo "$DOCKER_PASSWORD" | docker login -u "prathibha07" --Prathibha@123-stdin
             docker push prathibha07/sparse_recommender_docker:latest
 
   test:
